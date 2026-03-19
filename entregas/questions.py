@@ -19,7 +19,7 @@ while attempts > 0:
     progress = ""
     for letter in word:
         if letter in guessed:
-            progress += letter + " "
+            progress += letter + " ."
         else:
             progress += "_ "
     print(progress)
