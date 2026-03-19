@@ -1,6 +1,9 @@
 print("ingrese una cantidad de segundos: ");
 segundos = int(input());
-horas = segundos // 3600;
-minutos = (segundos % 3600) // 60;
+minutos = segundos / 60;
+horas = minutos / 60;
+dias = horas / 24;
 segundos = segundos % 60;
-print("horas: ", horas, "minutos: ", minutos, "segundos: ", segundos);
+print(horas, "horas");
+print(minutos, "minutos");
+print(segundos, "segundos");
