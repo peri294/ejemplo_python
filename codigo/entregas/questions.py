@@ -6,6 +6,9 @@ words = {
 }
 #7.C
 categoria = input("Selecciona una categoría: lenguaje o datos: ")
+palabras_adivinadas = 0
+palabras_totales = len(words[categoria])
+print(palabras_totales)
 #7.C
 while categoria not in words:
     print("Categoría no válida. Por favor, selecciona 'lenguaje' o 'datos'.")
@@ -14,10 +17,10 @@ while categoria not in words:
 word = random.choice(words[categoria])
 guessed = []
 attempts = 6
+print("¡Bienvenido al Ahorcado!")
 puntaje = 0
-print("¡Bienvenido ala Ahorcado!")
-print()
-while attempts > 0:
+print(f"Tu puntaje actual es: {puntaje}")
+while attempts > 0 and palabras_adivinadas < palabras_totales:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
     progress = ""
     for letter in word:
@@ -31,7 +34,16 @@ while attempts > 0:
         print("¡Ganaste!")
         #7.B
         puntaje += 6
-        break
+        print(f"Tu puntaje actual es: {puntaje}")
+        palabras_adivinadas += 1
+        words[categoria].remove(word)
+        if palabras_adivinadas < palabras_totales:
+            word = random.choice(words[categoria])
+            guessed = []
+            attempts = 6
+        print("pasaste a la siguiente palabra")
+        if palabras_adivinadas == palabras_totales:
+            break
     print(f"Intentos restantes: {attempts}")
     print(f"Letras usadas: {', '.join(guessed)}")
     letter = input("Ingresá una letra: ")
@@ -50,6 +62,7 @@ while attempts > 0:
         print("Esa letra no está en la palabra.")
         #7.B
         puntaje -= 1
+        print(f"Tu puntaje actual es: {puntaje}")
     print()
 else:
     print(f"¡Perdiste! La palabra era: {word}")
