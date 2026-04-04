@@ -10,6 +10,7 @@ palabras_adivinadas = 0
 palabras_totales = len(words[categoria])
 print(palabras_totales)
 #7.C
+puntaje = 0
 while categoria not in words:
     print("Categoría no válida. Por favor, selecciona 'lenguaje' o 'datos'.")
     categoria = input("Selecciona una categoría: lenguaje o datos: ")
@@ -18,7 +19,6 @@ word = random.choice(words[categoria])
 guessed = []
 attempts = 6
 print("¡Bienvenido al Ahorcado!")
-puntaje = 0
 print(f"Tu puntaje actual es: {puntaje}")
 while attempts > 0 and palabras_adivinadas < palabras_totales:
     # Mostrar progreso: letras adivinadas y guiones para las que faltan
